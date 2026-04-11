@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AegisVision | CCTV & Surveillance Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #F7F9FC;
+      color: #1A2C3E;
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    /* Header */
+    .header {
+      background: white;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      flex-wrap: wrap;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-icon {
+      background: #0B2B40;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      color: white;
+      font-size: 1.4rem;
+    }
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: 800;
+      font-family: 'Poppins', sans-serif;
+    }
+    .logo-text span {
+      color: #C44536;
+    }
+    .back-home {
+      background: #1E5F7A;
+      color: white;
+      padding: 8px 20px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+    .back-home:hover {
+      background: #0B2B40;
+    }
+    /* Hero */
+    .hero {
+      background: linear-gradient(105deg, #0B2B40 0%, #1E5F7A 100%);
+      color: white;
+      padding: 60px 0;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      font-family: 'Poppins', sans-serif;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      max-width: 700px;
+      margin: 0 auto;
+      opacity: 0.9;
+    }
+    /* Product grid */
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin: 60px 0 40px;
+      font-family: 'Poppins', sans-serif;
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 32px;
+      margin-bottom: 80px;
+    }
+    .product-card {
+      background: white;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s;
+    }
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 35px rgba(0,0,0,0.12);
+    }
+    .media-placeholder {
+      background: #EFF3F8;
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6C86A3;
+      font-size: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .media-placeholder img, .media-placeholder video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .product-info {
+      padding: 24px;
+    }
+    .product-info h3 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+      font-family: 'Poppins', sans-serif;
+    }
+    .product-info p {
+      color: #4A627A;
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+    /* Style for description links - keeps original text appearance */
+    .desc-link {
+      text-decoration: none;
+      color: #4A627A;
+      transition: color 0.2s;
+    }
+    .desc-link:hover {
+      color: #1E5F7A;
+      text-decoration: underline;
+    }
+    .specs {
+      font-size: 0.85rem;
+      color: #1E5F7A;
+      background: #E9F0F5;
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+    .btn-quote {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #C44536;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: 0.2s;
+    }
+    .btn-quote:hover {
+      background: #A13224;
+    }
+    /* Footer */
+    .footer {
+      background: #0A1922;
+      color: #C9D9E6;
+      text-align: center;
+      padding: 32px 0;
+      margin-top: 40px;
+    }
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 1.8rem; }
+      .products-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <div class="logo-icon"><i class="fas fa-shield-alt"></i></div>
+          <div class="logo-text">AegisVision<span>Systems</span></div>
+        </div>
+        <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>CCTV & Surveillance Solutions</h1>
+      <p>High-definition security cameras, AI analytics, NVR systems, and remote monitoring — engineered for total visibility and threat prevention.</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <h2 class="section-title">Our Professional CCTV & Surveillance Systems Products Range</h2>
+    <div class="products-grid">
+      
+      <!-- Product Card 1 - 4K Bullet Camera -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <img src="bullet.png" alt="4K Bullet Camera">
+          <i class="fas fa-video" style="font-size: 3rem;"></i>
+          <span style="position: absolute; bottom: 10px; right: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.6); padding: 2px 8px; border-radius: 20px;">Video/Image</span>
+        </div>
+        <div class="product-info">
+          <h3>4K Ultra HD Bullet Camera</h3>
+          <div class="specs">8MP · 120dB WDR · IR up to 50m</div>
+          <p><a href="https://www.hikvision.com/en/products/IP-Products/Network-Cameras/Pro-Series-EasyIP-/ds-2cd2t83g2-2i-4i/?subName=DS-2CD2T83G2-2I" class="desc-link" target="_blank" rel="noopener noreferrer">Weatherproof (IP67) with smart motion detection, face capture, and night vision. Ideal for perimeter security.</a></p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+
+      <!-- Product Card 2 - PTZ Camera -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <img src="ptz.png" alt="4MP PTZ Camera">
+          <i class="fas fa-camera" style="font-size: 3rem;"></i>
+          <span style="position: absolute; bottom: 10px; right: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.6); padding: 2px 8px; border-radius: 20px;">Image</span>
+        </div>
+        <div class="product-info">
+          <h3>PTZ Smart Tracking Camera</h3>
+          <div class="specs">4MP · 25x Optical Zoom · Auto-tracking</div>
+          <p><a href="https://www.hikvision.com/africa/products/IP-Products/PTZ-Cameras/Pro-Series/ds-2se4c425mwg-e-26-f0-/" class="desc-link" target="_blank" rel="noopener noreferrer">Pan-Tilt-Zoom with preset patrols, human/vehicle classification, and long-range infrared (200m).</a></p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+
+      <!-- Product Card 3 - Dome Camera (Indoor/Outdoor) -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <img src="dome.png" alt="Vandal-Resistant Dome Camera">
+          <i class="fas fa-circle-notch" style="font-size: 3rem;"></i>
+          <span style="position: absolute; bottom: 10px; right: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.6); padding: 2px 8px; border-radius: 20px;">Video</span>
+        </div>
+        <div class="product-info">
+          <h3>Vandal-Resistant Dome Camera</h3>
+          <div class="specs">5MP · IK10 Vandal Proof · PoE+</div>
+          <p><a href="https://www.hikvision.com/en/products/IP-Products/Network-Cameras/value-series/ds-2cd1183g2-liu-f-/?subName=DS-2CD1183G2-LIUF" class="desc-link" target="_blank" rel="noopener noreferrer">Discreet design, 360° panoramic option, advanced WDR, suitable for hotels, offices, and retail.</a></p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+
+      <!-- Product Card 4 - Network Video Recorder (NVR) -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <img src="nvr.png" alt="Network-Video-Recorders">
+          <i class="fas fa-server" style="font-size: 3rem;"></i>
+          <span style="position: absolute; bottom: 10px; right: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.6); padding: 2px 8px; border-radius: 20px;">Image</span>
+        </div>
+        <div class="product-info">
+          <h3>AI NVR</h3>
+          <div class="specs">4K Recording · RAID Storage · Remote Access</div>
+          <p><a href="https://www.hikvision.com/mena-en/products/IP-Products/Network-Video-Recorders/Pro-Series/ds-7616ni-k2-16p/" class="desc-link" target="_blank" rel="noopener noreferrer">Supports H.265+, facial recognition, and mobile alerts. Scalable up to 64TB.</a></p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+
+      <!-- Product Card 5 - Thermal Camera -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <img src="thermalcam.png" alt="Thermal & Bi-spectrum Camera">
+          <i class="fas fa-fire" style="font-size: 3rem;"></i>
+          <span style="position: absolute; bottom: 10px; right: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.6); padding: 2px 8px; border-radius: 20px;">Video</span>
+        </div>
+        <div class="product-info">
+          <h3>Thermal & Optical Bi-spectrum Camera</h3>
+          <div class="specs">384x288 Thermal · Fire Detection · 10km range</div>
+          <p><a href="https://www.hikvision.com/africa/products/Thermal-Products/Security-thermal-cameras/PT-series/hm-td6338-50c4l-g0-t2y/" class="desc-link" target="_blank" rel="noopener noreferrer">Early fire warning, perimeter intrusion detection in complete darkness or harsh weather.</a></p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+
+      <!-- Product Card 6 - Wireless Wi-Fi Camera -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <img src="minipt.png" alt="Solar Pan-Tilt-Zoom Camera With 4GSim"> 
+          <i class="fas fa-wifi" style="font-size: 3rem;"></i>
+          <span style="position: absolute; bottom: 10px; right: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.6); padding: 2px 8px; border-radius: 20px;">Image</span>
+        </div>
+        <div class="product-info">
+          <h3>2K Wireless Pan/Tilt Camera</h3>
+          <div class="specs">2K QHD · Two-Way Audio · SD Card / Cloud · Supports 4GSim</div>
+          <p><a href="https://www.hikvision.com/africa/products/IP-Products/Network-Cameras/Wi-Fi-Series/ds-2cfsp4-4g/" class="desc-link" target="_blank" rel="noopener noreferrer">Easy DIY installation, motion tracking, privacy mode, perfect for residential and small offices.</a></p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 AegisVision Systems Engineering Ltd. — Engineering Precision, Reliable Systems</p>
+      <p style="margin-top: 10px;"><i class="fas fa-phone"></i> +233 (0) 55 078 5918 / +233 (0) 50 421 3949 | <i class="fas fa-envelope"></i> aegisvisiontech@gmail.com</p>
+    </div>
+  </footer>
+
+  <script>
+    // Optional: replace placeholder media with actual images/videos later.
+    // To add real images, find each .media-placeholder and insert <img> or <video>.
+    console.log("CCTV page ready — replace placeholders with your product media.");
+  </script>
+</body>
+</html>
