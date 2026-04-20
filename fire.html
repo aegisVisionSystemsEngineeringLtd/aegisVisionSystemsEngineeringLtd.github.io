@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AegisVision | Fire Detection & Alarm Systems</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #F7F9FC;
+      color: #1A2C3E;
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .header {
+      background: white;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      flex-wrap: wrap;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-icon {
+      background: #0B2B40;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      color: white;
+      font-size: 1.4rem;
+    }
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: 800;
+      font-family: 'Poppins', sans-serif;
+    }
+    .logo-text span {
+      color: #C44536;
+    }
+    .back-home {
+      background: #1E5F7A;
+      color: white;
+      padding: 8px 20px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+    .back-home:hover {
+      background: #0B2B40;
+    }
+    .hero {
+      background: linear-gradient(105deg, #0B2B40 0%, #1E5F7A 100%);
+      color: white;
+      padding: 60px 0;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      font-family: 'Poppins', sans-serif;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      max-width: 800px;
+      margin: 0 auto;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin: 60px 0 20px;
+      font-family: 'Poppins', sans-serif;
+    }
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #4A627A;
+      margin-bottom: 40px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 32px;
+      margin-bottom: 80px;
+    }
+    .product-card {
+      background: white;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s;
+    }
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 35px rgba(0,0,0,0.12);
+    }
+    .media-placeholder {
+      background: #EFF3F8;
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6C86A3;
+      font-size: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .media-placeholder img, .media-placeholder video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .product-info {
+      padding: 24px;
+    }
+    .product-info h3 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+      font-family: 'Poppins', sans-serif;
+    }
+    .product-info p {
+      color: #4A627A;
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+    .specs {
+      font-size: 0.85rem;
+      color: #1E5F7A;
+      background: #E9F0F5;
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+    .btn-quote {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #C44536;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: 0.2s;
+    }
+    .btn-quote:hover {
+      background: #A13224;
+    }
+    .desc-link {
+      text-decoration: none;
+      color: #4A627A;
+      transition: color 0.2s;
+    }
+    .desc-link:hover {
+      color: #1E5F7A;
+      text-decoration: underline;
+    }
+    .footer {
+      background: #0A1922;
+      color: #C9D9E6;
+      text-align: center;
+      padding: 32px 0;
+      margin-top: 40px;
+    }
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 1.8rem; }
+      .products-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <div class="logo-icon"><i class="fas fa-shield-alt"></i></div>
+          <div class="logo-text">AegisVision<span>Systems</span></div>
+        </div>
+        <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Fire Detection & Alarm Systems</h1>
+      <p>Fire alarm systems are essential for quick detection of smoke or flames, helping to protect lives and property. AegisVision designs, supplies, and installs code‑compliant systems — from conventional panels to addressable networks, smoke/heat detectors, manual call points, and emergency lighting. Tailored for hotels, clinics, offices, schools, and residential buildings across Ghana.</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <!-- Understanding Fire Alarm System Basics -->
+    <div style="background: #E9F0F5; border-radius: 28px; padding: 40px; margin-bottom: 60px;">
+      <h2 style="text-align: center; margin-bottom: 20px;">Understanding Fire Alarm System Basics</h2>
+      <p style="text-align: center; max-width: 900px; margin: 0 auto; color: #1A2C3E;">Fire alarm systems consist of various components designed to detect and alert occupants to fire or smoke hazards. Understanding the specific types and key components will help you choose the right system for your building. AegisVision provides professional installation, testing, and ongoing maintenance to ensure full compliance with NFPA standards and local Ghanaian fire safety regulations.</p>
+    </div>
+
+    <h2 class="section-title">Types of Fire Alarm Systems</h2>
+    <p class="section-subtitle">Each system is tailored for different environments and needs</p>
+    <div class="products-grid">
+      <!-- Conventional System -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <img src="conv_fire.jpg" alt="Conventional Fire Alarm System">
+          <!--i class="fas fa-layer-group" style="font-size: 3rem;"></i>-->
+          <!--span style="position: absolute; bottom: 10px; right: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.6); padding: 2px 8px; border-radius: 20px;"></span>-->
+        </div>
+        <div class="product-info">
+          <h3>Conventional Fire Alarm System</h3>
+          <div class="specs">Zoned detection · Cost-effective · For smaller buildings</div>
+          <p>Conventional systems divide the building into zones, each monitored by detectors. When a detector activates, the control panel indicates which zone is in alarm. They are easy to install, cost‑effective, and suitable for small businesses, clinics, and residential properties. Maintenance is straightforward, making them a popular choice for limited budgets.</p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+
+      <!-- Addressable System -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <img src="address_fire.jpg" alt="Addressable Fire Alarm System">
+        </div>
+        <div class="product-info">
+          <h3>Addressable Fire Alarm System</h3>
+          <div class="specs">Device‑level identification · For large facilities</div>
+          <p>Addressable systems allow individual addressing of each detection device. When an alarm is triggered, the panel pinpoints the exact device responsible. This enhances reliability and response time, making them ideal for hotels, hospitals, corporate offices, and schools where detailed monitoring is crucial. They can be integrated with other safety systems.</p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+
+      <!-- Hybrid System -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <img src="hybrid_fire.jpg" alt="Hybrid Fire Alarm System">
+        </div>
+        <div class="product-info">
+          <h3>Hybrid Fire Alarm System</h3>
+          <div class="specs">Combines conventional & addressable · Flexible migration</div>
+          <p>Hybrid systems integrate existing conventional devices with newer addressable technology. This allows you to enhance your current setup without full replacement — saving costs while improving safety. Particularly effective for buildings undergoing renovation or expansion.</p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+
+      <!-- Wireless System -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <img src="wireless_fire.jpg" alt="Hybrid Fire Alarm System">
+        </div>
+        <div class="product-info">
+          <h3>Wireless Fire Alarm System</h3>
+          <div class="specs">Radio communication · Easy retrofitting</div>
+          <p>Wireless systems use radio signals instead of cabling. They are easier to install, ideal for heritage buildings, schools, and temporary structures where wiring is impractical. They offer similar capabilities to wired systems and can be easily expanded.</p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title">Key Components of Fire Alarm Systems</h2>
+    <p class="section-subtitle">The building blocks of reliable fire safety</p>
+    <div class="products-grid">
+      <!-- Control Panel -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <img src="ctrl_panel.jpg" alt="Control Panel">
+        </div>
+        <div class="product-info">
+          <h3>Fire Alarm Control Panel (FACP)</h3>
+          <div class="specs">The brain of the system</div>
+          <p>The control panel processes signals from detectors and initiates alerts. It displays alarms, faults, and system status. Available from 2 to 32 loops with LCD display and battery backup. Programmable for building‑specific logic and integration with BMS or smoke management systems.</p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+
+      <!-- Smoke Detector -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <img src="smoke_detector.jpg" alt="Hybrid Fire Alarm System">        </div>
+        <div class="product-info">
+          <h3>Smoke Detectors</h3>
+          <div class="specs">Ionisation · Photoelectric · Multi‑sensor</div>
+          <p>Smoke detectors sense airborne particles from fire. Ionisation types respond quickly to fast‑flaming fires, while photoelectric are better for smouldering fires. Multi‑sensor units combine both technologies for maximum reliability. Ideal for corridors, bedrooms, and common areas.</p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+
+      <!-- Heat Detector -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <img src="heat_det.jpg" alt="Heat Detector">
+        </div>
+        <div class="product-info">
+          <h3>Heat Detectors</h3>
+          <div class="specs">Fixed temperature · Rate‑of‑rise · Industrial grade</div>
+          <p>Heat detectors activate when temperature exceeds a fixed threshold or rises too quickly. They are ideal for kitchens, boiler rooms, and dusty environments where smoke detectors may false alarm. Reliable and maintenance‑friendly.</p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+
+      <!-- Manual Call Point -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <img src="mcp.jpg" alt="Manual Call Point">
+          <i class="fas fa-hand-paper" style="font-size: 1rem;"></i>
+          <span style="position: absolute; bottom: 10px; right: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.6); padding: 2px 8px; border-radius: 20px;">Image Placeholder</span>
+        </div>
+        <div class="product-info">
+          <h3>Manual Call Points (Break Glass)</h3>
+          <div class="specs">IP65 · Weatherproof · Resettable or frangible</div>
+          <p>Strategically located near exits, manual call points allow anyone to trigger the fire alarm. Available with LED indication and addressable versions. Robust design for indoor and outdoor use.</p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+
+      <!-- Notification Appliances -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <img src="notif_device.jpg" alt="Notification Devices">
+          <span style="position: absolute; bottom: 10px; right: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.6); padding: 2px 8px; border-radius: 20px;">Image Placeholder</span>
+        </div>
+        <div class="product-info">
+          <h3>Horns, Strobes & Sounders</h3>
+          <div class="specs">High dB output · Visual alerts for hearing impaired</div>
+          <p>Notification appliances alert occupants through audible and visual signals. Synchronized strobes and high‑output sounders ensure everyone can respond quickly. Weatherproof outdoor sounders and low‑profile indoor strobes available.</p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+
+      <!-- Emergency Lighting -->
+      <div class="product-card">
+        <div class="media-placeholder">
+         <img src="siren.gif" alt="Hybrid Fire Alarm System">        </div>
+        <div class="product-info">
+          <h3>Emergency & Escape Lighting</h3>
+          <div class="specs">LED · 3‑hour duration · Self‑test or central battery</div>
+          <p>Illuminates escape routes during power failure. Code‑compliant placement in corridors, stairwells, and exits. Maintained and non‑maintained options with automatic self‑testing functionality.</p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+
+      <!-- First Aid Devices -->
+      <div class="product-card">
+        <div class="media-placeholder">
+         <img src="fire_ext.jpg" alt="Fire Extinguisher"/>        </div>
+        <div class="product-info">
+          <h3>Fire Fighting Devices</h3>
+          <div class="specs">Water · Dry Powder · Carbon dioxide · Wet Chemicals</div>
+          <p>These help fight the fire during the initial stages before professional help arrives . Code‑compliant placement in corridors, stairwells, and exits. This help prevent most damage and control the fire from spreading rapidly.</p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- Installation & Maintenance Section -->
+    <div style="background: #0B2B40; border-radius: 28px; padding: 40px; margin: 60px 0; color: white;">
+      <h2 style="text-align: center; margin-bottom: 20px;">Professional Installation & Maintenance</h2>
+      <p style="text-align: center; max-width: 900px; margin: 0 auto;">Proper installation and ongoing maintenance are critical for compliance and performance. AegisVision’s certified technicians assess your building layout, occupancy type, and local fire codes to design the optimal system. We provide regular inspections, battery replacements, and 24/7 support to ensure your system remains reliable for years.</p>
+    </div>
+
+    <!-- Commercial vs Residential -->
+    <h2 class="section-title">Fire Alarm Systems for Different Properties</h2>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="media-placeholder">
+          <img src = "hospital.jpg" alt = "Hospital" />
+        </div>
+        <div class="product-info">
+          <h3>Commercial Properties</h3>
+          <div class="specs">Hotels · Hospitals · Offices · Schools</div>
+          <p>Addressable systems are ideal for larger facilities, pinpointing exact alarm locations for faster response. AegisVision provides full design, installation, and maintenance for commercial buildings, ensuring compliance with NFPA 72 and local regulations.</p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="media-placeholder">
+          <img src="home.jpg" alt="Homes">
+        </div>
+        <div class="product-info">
+          <h3>Residential Buildings</h3>
+          <div class="specs">Houses · Apartments · Estates</div>
+          <p>Smoke detectors on every level, near sleeping areas, and automatic alarm systems ensure fast response. AegisVision offers simple battery‑operated units as well as fully integrated wireless systems for multi‑story homes.</p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Regulations & Standards -->
+    <div style="background: #E9F0F5; border-radius: 28px; padding: 40px; margin: 60px 0;">
+      <h2 style="text-align: center; margin-bottom: 20px;">Regulations & Standards</h2>
+      <p style="text-align: center; max-width: 900px; margin: 0 auto;">AegisVision follows NFPA 72 standards for installation, performance, testing, and maintenance. We also adhere to local Ghanaian fire safety codes, ensuring your system is fully compliant and your property is protected. Regular inspections and documentation keep you ready for any emergency or official review.</p>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 AegisVision Systems Engineering — Engineering Precision, Reliable Systems</p>
+      <p style="margin-top: 10px;"><i class="fas fa-phone"></i> 0550785918 | <i class="fas fa-envelope"></i> aegisvisiontech@gmail.com</p>
+    </div>
+  </footer>
+
+  <script>
+    console.log("Fire detection page ready — replace placeholder images with your product photos.");
+  </script>
+</body>
+</html>
