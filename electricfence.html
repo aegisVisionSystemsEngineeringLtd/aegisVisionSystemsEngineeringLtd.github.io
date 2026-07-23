@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AegisVision | Electric Fence Security Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #F7F9FC;
+      color: #1A2C3E;
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .header {
+      background: white;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      flex-wrap: wrap;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-icon {
+      background: #0B2B40;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      color: white;
+      font-size: 1.4rem;
+    }
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: 800;
+      font-family: 'Poppins', sans-serif;
+    }
+    .logo-text span {
+      color: #C44536;
+    }
+    .back-home {
+      background: #1E5F7A;
+      color: white;
+      padding: 8px 20px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+    .back-home:hover {
+      background: #0B2B40;
+    }
+    .hero {
+      background: linear-gradient(105deg, #0B2B40 0%, #1E5F7A 100%);
+      color: white;
+      padding: 60px 0;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      font-family: 'Poppins', sans-serif;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      max-width: 800px;
+      margin: 0 auto;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin: 60px 0 20px;
+      font-family: 'Poppins', sans-serif;
+    }
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #4A627A;
+      margin-bottom: 40px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 32px;
+      margin-bottom: 80px;
+    }
+    .product-card {
+      background: white;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s;
+    }
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 35px rgba(0,0,0,0.12);
+    }
+    .media-placeholder {
+      background: #EFF3F8;
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6C86A3;
+      font-size: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .media-placeholder img, .media-placeholder video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .product-info {
+      padding: 24px;
+    }
+    .product-info h3 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+      font-family: 'Poppins', sans-serif;
+    }
+    .product-info p {
+      color: #4A627A;
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+    .specs {
+      font-size: 0.85rem;
+      color: #1E5F7A;
+      background: #E9F0F5;
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+    .btn-quote {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #C44536;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: 0.2s;
+    }
+    .btn-quote:hover {
+      background: #A13224;
+    }
+    .desc-link {
+      text-decoration: none;
+      color: #4A627A;
+      transition: color 0.2s;
+    }
+    .desc-link:hover {
+      color: #1E5F7A;
+      text-decoration: underline;
+    }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+    .benefit-item {
+      text-align: center;
+    }
+    .benefit-item i {
+      font-size: 2rem;
+    }
+    .footer {
+      background: #0A1922;
+      color: #C9D9E6;
+      text-align: center;
+      padding: 32px 0;
+      margin-top: 40px;
+    }
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 1.8rem; }
+      .products-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <div class="logo-icon"><i class="fas fa-shield-alt"></i></div>
+          <div class="logo-text">AegisVision<span>Systems</span></div>
+        </div>
+        <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Electric Fence Security Solutions</h1>
+      <p>High‑voltage perimeter protection that deters intruders and integrates with your existing security system. AegisVision designs, supplies, and installs certified electric fence systems for residential estates, commercial properties, hotels, schools, and industrial facilities across Ghana.</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <!-- Understanding Electric Fencing -->
+    <div style="background: #E9F0F5; border-radius: 28px; padding: 40px; margin-bottom: 60px;">
+      <h2 style="text-align: center; margin-bottom: 20px;">How Electric Fencing Works</h2>
+      <p style="text-align: center; max-width: 900px; margin: 0 auto; color: #1A2C3E;">An electric fence energizer sends a high‑voltage, low‑current pulse along the fence wires at regular intervals (about one second). When an intruder touches the wires, they receive a short, safe but memorable shock — and the system triggers an alarm. AegisVision installations comply with international safety standards, ensuring protection without harm.</p>
+    </div>
+
+    <h2 class="section-title">Electric Fence Components</h2>
+    <p class="section-subtitle">Quality parts for reliable perimeter security</p>
+    <div class="products-grid">
+      <!-- Energizer Unit -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <i class="fas fa-bolt" style="font-size: 3rem;"></i>
+          <span style="position: absolute; bottom: 10px; right: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.6); padding: 2px 8px; border-radius: 20px;">Image Placeholder</span>
+        </div>
+        <div class="product-info">
+          <h3>Energizer Units</h3>
+          <div class="specs">Mains or battery · Up to 10J output · 5‑25km range</div>
+          <p><a href="#" class="desc-link" target="_blank" rel="noopener noreferrer">The heart of your electric fence system. Available in AC (mains) or DC (battery/solar) models. Features include dual‑zone monitoring, lightning protection, and tamper alerts. Suitable for perimeters from small homes to large industrial complexes.</a></p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+
+      <!-- Fence Wires & Conductors -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <i class="fas fa-ruler-combined" style="font-size: 3rem;"></i>
+          <span style="position: absolute; bottom: 10px; right: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.6); padding: 2px 8px; border-radius: 20px;">Image Placeholder</span>
+        </div>
+        <div class="product-info">
+          <h3>High‑Tensile Wires</h3>
+          <div class="specs">2.5mm aluminium · 2.0mm copper · 500m rolls</div>
+          <p>Corrosion‑resistant, high‑tensile wires that maintain tension across long perimeters. Aluminium offers cost‑effectiveness; copper provides superior conductivity. Available in 6, 8, or 12 strand configurations depending on security level.</p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+
+      <!-- Posts & Insulators -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <i class="fas fa-tree" style="font-size: 3rem;"></i>
+          <span style="position: absolute; bottom: 10px; right: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.6); padding: 2px 8px; border-radius: 20px;">Image Placeholder</span>
+        </div>
+        <div class="product-info">
+          <h3>Posts & Insulators</h3>
+          <div class="specs">Galvanised steel · UV‑stabilised plastic</div>
+          <p>Heavy‑duty corner, end, and line posts. UV‑resistant insulators prevent electrical leakage to the ground. Wall mounts available for existing boundary walls. All hardware included for complete installation.</p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+
+      <!-- Alarm & Integration -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <i class="fas fa-bell" style="font-size: 3rem;"></i>
+          <span style="position: absolute; bottom: 10px; right: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.6); padding: 2px 8px; border-radius: 20px;">Image Placeholder</span>
+        </div>
+        <div class="product-info">
+          <h3>Alarm Integration</h3>
+          <div class="specs">Siren · Strobe · GSM notification · CCTV trigger</div>
+          <p>Connect your electric fence to existing alarm panels, CCTV systems, or remote monitoring stations. Receive SMS alerts when the fence is cut, tampered with, or triggered. Programmable outputs for sirens or strobes.</p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title">Fence Configurations</h2>
+    <div class="products-grid">
+      <!-- Residential -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <i class="fas fa-home" style="font-size: 3rem;"></i>
+          <span style="position: absolute; bottom: 10px; right: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.6); padding: 2px 8px; border-radius: 20px;">Image Placeholder</span>
+        </div>
+        <div class="product-info">
+          <h3>Residential Estates & Homes</h3>
+          <div class="specs">6‑8 strands · Wall‑top or stand‑alone</div>
+          <p>Discreet perimeter protection that blends with architectural design. Wall‑top mounting for existing boundary walls, or stand‑alone posts for open perimeters. Battery backup ensures protection during power cuts.</p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+
+      <!-- Commercial -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <i class="fas fa-building" style="font-size: 3rem;"></i>
+          <span style="position: absolute; bottom: 10px; right: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.6); padding: 2px 8px; border-radius: 20px;">Image Placeholder</span>
+        </div>
+        <div class="product-info">
+          <h3>Commercial & Industrial</h3>
+          <div class="specs">10‑12 strands · Dual‑zone monitoring</div>
+          <p>High‑security configurations for warehouses, factories, offices, and hotels. Multi‑zone energizers allow independent monitoring of different perimeter sections. Integrates with CCTV and access control systems.</p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+
+      <!-- Schools & Institutions -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <i class="fas fa-school" style="font-size: 3rem;"></i>
+          <span style="position: absolute; bottom: 10px; right: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.6); padding: 2px 8px; border-radius: 20px;">Image Placeholder</span>
+        </div>
+        <div class="product-info">
+          <h3>Schools & Institutions</h3>
+          <div class="specs">Child‑safe pulsing · Warning signs</div>
+          <p>Compliant with safety regulations for schools and public facilities. Prominent warning signage, child‑safe pulse timing, and monitored alarm outputs. Deters unauthorised access after hours.</p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+
+      <!-- Farms & Large Estates -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <i class="fas fa-tractor" style="font-size: 3rem;"></i>
+          <span style="position: absolute; bottom: 10px; right: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.6); padding: 2px 8px; border-radius: 20px;">Image Placeholder</span>
+        </div>
+        <div class="product-info">
+          <h3>Farms & Large Estates</h3>
+          <div class="specs">Long‑range energizers · Solar power</div>
+          <p>Solar‑powered energizers for remote areas. Covers perimeters up to 25km. Protects livestock, equipment, and property boundaries. Easy installation on fence posts or existing agricultural fencing.</p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title">Installation & Maintenance</h2>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="media-placeholder">
+          <i class="fas fa-hard-hat" style="font-size: 3rem;"></i>
+          <span style="position: absolute; bottom: 10px; right: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.6); padding: 2px 8px; border-radius: 20px;">Image Placeholder</span>
+        </div>
+        <div class="product-info">
+          <h3>Professional Installation</h3>
+          <div class="specs">Site survey · Earthing · Voltage testing</div>
+          <p>Our certified technicians survey your perimeter, design the optimal fence layout, and install all components to manufacturer specifications. Proper earthing ensures effective shocking and lightning protection. We obtain necessary permits where required.</p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="media-placeholder">
+          <i class="fas fa-tools" style="font-size: 3rem;"></i>
+          <span style="position: absolute; bottom: 10px; right: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.6); padding: 2px 8px; border-radius: 20px;">Image Placeholder</span>
+        </div>
+        <div class="product-info">
+          <h3>Routine Maintenance</h3>
+          <div class="specs">Voltage checks · Vegetation trimming · Repairs</div>
+          <p>Regular inspections ensure your fence stays effective. We test energizer output, check for wire slack or damage, trim vegetation that could short the fence, and test alarm communications. Emergency repair service available 24/7.</p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Legal & Safety Compliance -->
+    <div style="background: #0B2B40; border-radius: 28px; padding: 40px; margin: 60px 0; color: white;">
+      <h2 style="text-align: center; margin-bottom: 20px;">Legal & Safety Compliance</h2>
+      <p style="text-align: center; max-width: 900px; margin: 0 auto;">All AegisVision electric fence installations comply with IEC 60335‑2‑76 and local Ghanaian regulations. We install prominent warning signs at regular intervals, ensure safe pulse energy levels, and provide earthing to protect against lightning. Full documentation and certificates of compliance provided after installation.</p>
+    </div>
+
+    <!-- Benefits -->
+    <div style="background: #E9F0F5; border-radius: 28px; padding: 40px; margin: 60px 0;">
+      <h2 style="text-align: center; margin-bottom: 20px;">Why Choose AegisVision for Electric Fencing?</h2>
+      <div class="benefits-grid">
+        <div class="benefit-item"><i class="fas fa-shield-alt" style="font-size: 2rem; color: #1E5F7A;"></i><h3 style="margin: 15px 0 10px;">Visible Deterrent</h3><p>Warning signs and visible wires discourage intruders before they attempt entry.</p></div>
+        <div class="benefit-item"><i class="fas fa-battery-full" style="font-size: 2rem; color: #1E5F7A;"></i><h3 style="margin: 15px 0 10px;">Uninterrupted Power</h3><p>Battery/solar backup ensures protection during grid outages.</p></div>
+        <div class="benefit-item"><i class="fas fa-bell" style="font-size: 2rem; color: #1E5F7A;"></i><h3 style="margin: 15px 0 10px;">Immediate Alerts</h3><p>Instant notification of intrusion attempts via siren, strobe, or SMS.</p></div>
+        <div class="benefit-item"><i class="fas fa-gavel" style="font-size: 2rem; color: #1E5F7A;"></i><h3 style="margin: 15px 0 10px;">Fully Compliant</h3><p>Certified installations meeting all safety and legal requirements.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 AegisVision Systems Engineering — Engineering Precision, Reliable Systems</p>
+      <p style="margin-top: 10px;"><i class="fas fa-phone"></i> 0550785918 | <i class="fas fa-envelope"></i> aegisvisiontech@gmail.com</p>
+    </div>
+  </footer>
+
+  <script>
+    console.log("Electric fence page ready — replace placeholder images with your project photos.");
+  </script>
+</body>
+</html>

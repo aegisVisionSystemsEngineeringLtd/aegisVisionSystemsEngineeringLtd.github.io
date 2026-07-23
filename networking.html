@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AegisVision | Networking & Structured Cabling</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #F7F9FC;
+      color: #1A2C3E;
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .header {
+      background: white;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      flex-wrap: wrap;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-icon {
+      background: #0B2B40;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      color: white;
+      font-size: 1.4rem;
+    }
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: 800;
+      font-family: 'Poppins', sans-serif;
+    }
+    .logo-text span {
+      color: #C44536;
+    }
+    .back-home {
+      background: #1E5F7A;
+      color: white;
+      padding: 8px 20px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+    .back-home:hover {
+      background: #0B2B40;
+    }
+    .hero {
+      background: linear-gradient(105deg, #0B2B40 0%, #1E5F7A 100%);
+      color: white;
+      padding: 60px 0;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      font-family: 'Poppins', sans-serif;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      max-width: 800px;
+      margin: 0 auto;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin: 60px 0 20px;
+      font-family: 'Poppins', sans-serif;
+    }
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #4A627A;
+      margin-bottom: 40px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 32px;
+      margin-bottom: 80px;
+    }
+    .product-card {
+      background: white;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s;
+    }
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 35px rgba(0,0,0,0.12);
+    }
+    .media-placeholder {
+      background: #EFF3F8;
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6C86A3;
+      font-size: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .media-placeholder img, .media-placeholder video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .product-info {
+      padding: 24px;
+    }
+    .product-info h3 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+      font-family: 'Poppins', sans-serif;
+    }
+    .product-info p {
+      color: #4A627A;
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+    .specs {
+      font-size: 0.85rem;
+      color: #1E5F7A;
+      background: #E9F0F5;
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+    .btn-quote {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #C44536;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: 0.2s;
+    }
+    .btn-quote:hover {
+      background: #A13224;
+    }
+    .desc-link {
+      text-decoration: none;
+      color: #4A627A;
+      transition: color 0.2s;
+    }
+    .desc-link:hover {
+      color: #1E5F7A;
+      text-decoration: underline;
+    }
+    .footer {
+      background: #0A1922;
+      color: #C9D9E6;
+      text-align: center;
+      padding: 32px 0;
+      margin-top: 40px;
+    }
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 1.8rem; }
+      .products-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <div class="logo-icon"><i class="fas fa-shield-alt"></i></div>
+          <div class="logo-text">AegisVision<span>Systems</span></div>
+        </div>
+        <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Networking & Structured Cabling</h1>
+      <p>High‑performance network infrastructure for reliable connectivity, security, and scalability. AegisVision designs and installs structured cabling systems, VLAN segmentation, firewalls, and enterprise networks for hotels, clinics, corporate offices, schools, and residential developments across Ghana.</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <!-- Understanding Structured Cabling -->
+    <div style="background: #E9F0F5; border-radius: 28px; padding: 40px; margin-bottom: 60px;">
+      <h2 style="text-align: center; margin-bottom: 20px;">The Backbone of Modern Communication</h2>
+      <p style="text-align: center; max-width: 900px; margin: 0 auto; color: #1A2C3E;">A well‑planned network infrastructure ensures fast, secure, and reliable data transfer. Structured cabling standardises how voice, data, and video signals travel through your building. AegisVision follows TIA/EIA standards to deliver future‑proof networks that support growth and advanced applications.</p>
+    </div>
+
+    <h2 class="section-title">Core Networking Services</h2>
+    <p class="section-subtitle">From physical cabling to advanced cybersecurity</p>
+    <div class="products-grid">
+      <!-- Structured Cabling -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <i class="fas fa-network-wired" style="font-size: 3rem;"></i>
+          <span style="position: absolute; bottom: 10px; right: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.6); padding: 2px 8px; border-radius: 20px;">Image Placeholder</span>
+        </div>
+        <div class="product-info">
+          <h3>Structured Cabling Systems</h3>
+          <div class="specs">Cat6/6A/7 · Fibre optic · Patch panels</div>
+          <p><a href="#" class="desc-link" target="_blank" rel="noopener noreferrer">Complete copper and fibre cabling installations for voice, data, and security systems. We follow industry best practices for cable management, termination, and testing (fluke certification). Supports speeds up to 10/40/100GbE. Ideal for new builds and retrofits.</a></p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+
+      <!-- VLAN Segmentation -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <i class="fas fa-diagram-project" style="font-size: 3rem;"></i>
+          <span style="position: absolute; bottom: 10px; right: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.6); padding: 2px 8px; border-radius: 20px;">Image Placeholder</span>
+        </div>
+        <div class="product-info">
+          <h3>VLAN Network Segmentation</h3>
+          <div class="specs">Logical separation · Guest networks · IoT isolation</div>
+          <p><a href="#" class="desc-link" target="_blank" rel="noopener noreferrer">Improve security and performance by dividing your network into virtual LANs. Separate guest Wi‑Fi, office computers, CCTV cameras, and IoT devices into isolated subnets. Managed switches and router configuration ensure traffic flows securely and efficiently.</a></p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+
+      <!-- Firewalls & Cybersecurity -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <i class="fas fa-shield-virus" style="font-size: 3rem;"></i>
+          <span style="position: absolute; bottom: 10px; right: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.6); padding: 2px 8px; border-radius: 20px;">Image Placeholder</span>
+        </div>
+        <div class="product-info">
+          <h3>Firewalls & Cybersecurity</h3>
+          <div class="specs">Next‑gen firewalls · VPN · Content filtering</div>
+          <p><a href="#" class="desc-link" target="_blank" rel="noopener noreferrer">Protect your network from external threats and unauthorised access. We deploy enterprise firewalls with intrusion prevention, deep packet inspection, and application control. Secure remote access via SSL VPN. Ideal for clinics, financial offices, and any business handling sensitive data.</a></p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+
+      <!-- Fibre Optic Cabling -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <i class="fas fa-fiber" style="font-size: 3rem;"></i>
+          <span style="position: absolute; bottom: 10px; right: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.6); padding: 2px 8px; border-radius: 20px;">Image Placeholder</span>
+        </div>
+        <div class="product-info">
+          <h3>Fibre Optic Infrastructure</h3>
+          <div class="specs">Single‑mode · Multi‑mode · Long‑distance</div>
+          <p><a href="#" class="desc-link" target="_blank" rel="noopener noreferrer">High‑speed, interference‑free connectivity for campus networks, inter‑building links, and high‑bandwidth applications. We terminate, splice, and test fibre cables to industry standards. Future‑proof solution for education, hospitality, and corporate campuses.</a></p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title">Network Hardware & Wireless Solutions</h2>
+    <div class="products-grid">
+      <!-- Enterprise Switches -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <i class="fas fa-exchange-alt" style="font-size: 3rem;"></i>
+          <span style="position: absolute; bottom: 10px; right: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.6); padding: 2px 8px; border-radius: 20px;">Image Placeholder</span>
+        </div>
+        <div class="product-info">
+          <h3>Managed Switches & Routers</h3>
+          <div class="specs">PoE+ · Layer 2/3 · Stackable</div>
+          <p>Deploy reliable switching infrastructure with Power over Ethernet for IP cameras, phones, and access points. Managed switches allow VLAN configuration, traffic prioritisation, and remote monitoring. Routers with failover support dual WAN for business continuity.</p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+
+      <!-- Wi-Fi Solutions -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <i class="fas fa-wifi" style="font-size: 3rem;"></i>
+          <span style="position: absolute; bottom: 10px; right: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.6); padding: 2px 8px; border-radius: 20px;">Image Placeholder</span>
+        </div>
+        <div class="product-info">
+          <h3>Enterprise Wi‑Fi Networks</h3>
+          <div class="specs">802.11ax (Wi‑Fi 6) · Mesh · Cloud management</div>
+          <p>Seamless wireless coverage for offices, hotels, and public areas. We design access point placement for optimal signal strength, roaming, and capacity. Support for captive portals (guest Wi‑Fi), bandwidth limiting, and integration with existing authentication systems.</p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+
+      <!-- Server & Data Cabling -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <i class="fas fa-server" style="font-size: 3rem;"></i>
+          <span style="position: absolute; bottom: 10px; right: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.6); padding: 2px 8px; border-radius: 20px;">Image Placeholder</span>
+        </div>
+        <div class="product-info">
+          <h3>Data Centre & Server Room Cabling</h3>
+          <div class="specs">Cable trays · Labelling · Cooling management</div>
+          <p>Organised, high‑density cabling for server racks and network closets. We implement structured pathways, colour‑coded patch leads, and detailed documentation. Reduces downtime, improves airflow, and simplifies troubleshooting.</p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+
+      <!-- Remote Monitoring -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <i class="fas fa-chart-line" style="font-size: 3rem;"></i>
+          <span style="position: absolute; bottom: 10px; right: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.6); padding: 2px 8px; border-radius: 20px;">Image Placeholder</span>
+        </div>
+        <div class="product-info">
+          <h3>Network Monitoring & Management</h3>
+          <div class="specs">SNMP · Alerts · Bandwidth analysis</div>
+          <p>Proactive maintenance with 24/7 network monitoring. Receive alerts for outages, high utilisation, or device failures. Performance reports help optimise capacity planning. On‑site and remote support contracts available.</p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title">Installation & Support</h2>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="media-placeholder">
+          <i class="fas fa-hard-hat" style="font-size: 3rem;"></i>
+          <span style="position: absolute; bottom: 10px; right: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.6); padding: 2px 8px; border-radius: 20px;">Image Placeholder</span>
+        </div>
+        <div class="product-info">
+          <h3>Professional Deployment</h3>
+          <div class="specs">Site survey · Rack & stack · Cable certification</div>
+          <p>Certified network engineers handle everything from pulling cables to configuring switches and firewalls. We provide as‑built diagrams, test reports, and user training. Projects are delivered on time and within budget.</p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="media-placeholder">
+          <i class="fas fa-headset" style="font-size: 3rem;"></i>
+          <span style="position: absolute; bottom: 10px; right: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.6); padding: 2px 8px; border-radius: 20px;">Image Placeholder</span>
+        </div>
+        <div class="product-info">
+          <h3>Ongoing Maintenance & Helpdesk</h3>
+          <div class="specs">SLA options · Remote support · Spare parts</div>
+          <p>Keep your network running smoothly with regular health checks, firmware updates, and rapid response to faults. Our helpdesk provides remote troubleshooting and on‑site visits when needed.</p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Benefits of Professional Networking -->
+    <div style="background: #0B2B40; border-radius: 28px; padding: 40px; margin: 60px 0; color: white;">
+      <h2 style="text-align: center; margin-bottom: 20px;">Why Choose AegisVision for Your Network?</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 30px;">
+        <div style="text-align: center;"><i class="fas fa-clock" style="font-size: 2rem; color: #6FCF97;"></i><h3 style="margin: 15px 0 10px;">Future‑Proof</h3><p>Cat6A/fibre ready for 10GbE and beyond.</p></div>
+        <div style="text-align: center;"><i class="fas fa-lock" style="font-size: 2rem; color: #FFD966;"></i><h3 style="margin: 15px 0 10px;">Secure by Design</h3><p>VLANs, firewalls, and best‑practice segmentation.</p></div>
+        <div style="text-align: center;"><i class="fas fa-tachometer-alt" style="font-size: 2rem; color: #6FCF97;"></i><h3 style="margin: 15px 0 10px;">Optimised Performance</h3><p>Certified cabling and enterprise hardware.</p></div>
+        <div style="text-align: center;"><i class="fas fa-chart-line" style="font-size: 2rem; color: #FFD966;"></i><h3 style="margin: 15px 0 10px;">Scalable</h3><p>Easily expand as your business grows.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 AegisVision Systems Engineering — Engineering Precision, Reliable Systems</p>
+      <p style="margin-top: 10px;"><i class="fas fa-phone"></i> 0550785918 | <i class="fas fa-envelope"></i> aegisvisiontech@gmail.com</p>
+    </div>
+  </footer>
+
+  <script>
+    console.log("Networking page ready — replace placeholder images with your project photos.");
+  </script>
+</body>
+</html>

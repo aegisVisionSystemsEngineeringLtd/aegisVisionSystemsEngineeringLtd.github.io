@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AegisVision | Solar & Renewable Energy Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #F7F9FC;
+      color: #1A2C3E;
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .header {
+      background: white;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      flex-wrap: wrap;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-icon {
+      background: #0B2B40;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      color: white;
+      font-size: 1.4rem;
+    }
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: 800;
+      font-family: 'Poppins', sans-serif;
+    }
+    .logo-text span {
+      color: #C44536;
+    }
+    .back-home {
+      background: #1E5F7A;
+      color: white;
+      padding: 8px 20px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+    .back-home:hover {
+      background: #0B2B40;
+    }
+    .hero {
+      background: linear-gradient(105deg, #0B2B40 0%, #1E5F7A 100%);
+      color: white;
+      padding: 60px 0;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      font-family: 'Poppins', sans-serif;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      max-width: 800px;
+      margin: 0 auto;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin: 60px 0 20px;
+      font-family: 'Poppins', sans-serif;
+    }
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #4A627A;
+      margin-bottom: 40px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 32px;
+      margin-bottom: 80px;
+    }
+    .product-card {
+      background: white;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s;
+    }
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 35px rgba(0,0,0,0.12);
+    }
+    .media-placeholder {
+      background: #EFF3F8;
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6C86A3;
+      font-size: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .media-placeholder img, .media-placeholder video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .product-info {
+      padding: 24px;
+    }
+    .product-info h3 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+      font-family: 'Poppins', sans-serif;
+    }
+    .product-info p {
+      color: #4A627A;
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+    .specs {
+      font-size: 0.85rem;
+      color: #1E5F7A;
+      background: #E9F0F5;
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+    .btn-quote {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #C44536;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: 0.2s;
+    }
+    .btn-quote:hover {
+      background: #A13224;
+    }
+    .desc-link {
+      text-decoration: none;
+      color: #4A627A;
+      transition: color 0.2s;
+    }
+    .desc-link:hover {
+      color: #1E5F7A;
+      text-decoration: underline;
+    }
+    .footer {
+      background: #0A1922;
+      color: #C9D9E6;
+      text-align: center;
+      padding: 32px 0;
+      margin-top: 40px;
+    }
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 1.8rem; }
+      .products-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <div class="logo-icon"><i class="fas fa-shield-alt"></i></div>
+          <div class="logo-text">AegisVision<span>Systems</span></div>
+        </div>
+        <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Solar & Renewable Energy Solutions</h1>
+      <p>Harness the power of the sun to reduce electricity costs and ensure uninterrupted power supply. AegisVision designs, supplies, and installs high‑performance solar systems — from off‑grid and on‑grid to hybrid solutions — tailored for homes, businesses, hotels, clinics, and schools across Ghana.</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <!-- Understanding Solar Energy Basics -->
+    <div style="background: #E9F0F5; border-radius: 28px; padding: 40px; margin-bottom: 60px;">
+      <h2 style="text-align: center; margin-bottom: 20px;">Understanding Solar Energy Systems</h2>
+      <p style="text-align: center; max-width: 900px; margin: 0 auto; color: #1A2C3E;">Solar energy systems convert sunlight into electricity using photovoltaic (PV) panels. They reduce reliance on the national grid, lower electricity bills, and provide clean, sustainable power. AegisVision provides professional design, installation, and maintenance to ensure maximum efficiency and long‑term reliability.</p>
+    </div>
+
+    <h2 class="section-title">Types of Solar Power Systems</h2>
+    <p class="section-subtitle">Choose the right configuration for your energy needs</p>
+    <div class="products-grid">
+      <!-- Off-Grid System -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <i class="fas fa-battery-full" style="font-size: 3rem;"></i>
+          <span style="position: absolute; bottom: 10px; right: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.6); padding: 2px 8px; border-radius: 20px;">Image Placeholder</span>
+        </div>
+        <div class="product-info">
+          <h3>Off‑Grid Solar System</h3>
+          <div class="specs">100% independent · Battery storage · For remote areas</div>
+          <p><a href="#" class="desc-link" target="_blank" rel="noopener noreferrer">Off‑grid systems operate completely independently of the national grid. They include solar panels, charge controllers, battery banks, and inverters. Ideal for rural properties, farms, lodges, and areas with unreliable or no grid access. Energy is stored during the day for use at night or during cloudy periods.</a></p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+
+      <!-- On-Grid System -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <i class="fas fa-plug" style="font-size: 3rem;"></i>
+          <span style="position: absolute; bottom: 10px; right: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.6); padding: 2px 8px; border-radius: 20px;">Image Placeholder</span>
+        </div>
+        <div class="product-info">
+          <h3>On‑Grid (Grid‑Tied) Solar System</h3>
+          <div class="specs">Connected to utility grid · No batteries · Net metering</div>
+          <p><a href="#" class="desc-link" target="_blank" rel="noopener noreferrer">On‑grid systems connect directly to the national electricity grid. They supply solar power to your building during the day and draw from the grid when solar is insufficient. Excess energy can be exported to the grid (where net metering is available). This is the most cost‑effective option for urban homes and offices.</a></p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+
+      <!-- Hybrid System -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <i class="fas fa-exchange-alt" style="font-size: 3rem;"></i>
+          <span style="position: absolute; bottom: 10px; right: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.6); padding: 2px 8px; border-radius: 20px;">Image Placeholder</span>
+        </div>
+        <div class="product-info">
+          <h3>Hybrid Solar System</h3>
+          <div class="specs">Grid + batteries · Backup power · Energy independence</div>
+          <p><a href="#" class="desc-link" target="_blank" rel="noopener noreferrer">Hybrid systems combine the best of off‑grid and on‑grid. They include battery storage but remain connected to the grid. During a power outage, the batteries provide backup. You can store excess solar energy and use it during peak tariff hours, saving money while ensuring uninterrupted power.</a></p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title">Key Components of a Solar Power System</h2>
+    <p class="section-subtitle">The building blocks of reliable renewable energy</p>
+    <div class="products-grid">
+      <!-- Solar Panels -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <i class="fas fa-solar-panel" style="font-size: 3rem;"></i>
+          <span style="position: absolute; bottom: 10px; right: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.6); padding: 2px 8px; border-radius: 20px;">Image Placeholder</span>
+        </div>
+        <div class="product-info">
+          <h3>Solar Panels (PV Modules)</h3>
+          <div class="specs">Monocrystalline · Polycrystalline · Bifacial</div>
+          <p><a href="#" class="desc-link" target="_blank" rel="noopener noreferrer">Solar panels capture sunlight and convert it to DC electricity. Monocrystalline panels offer the highest efficiency, while polycrystalline are more affordable. Bifacial panels generate power from both sides. We supply Tier‑1 brands with 25‑year performance warranties.</a></p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+
+      <!-- Inverters -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <i class="fas fa-microchip" style="font-size: 3rem;"></i>
+          <span style="position: absolute; bottom: 10px; right: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.6); padding: 2px 8px; border-radius: 20px;">Image Placeholder</span>
+        </div>
+        <div class="product-info">
+          <h3>Solar Inverters</h3>
+          <div class="specs">String inverters · Microinverters · Hybrid inverters</div>
+          <p><a href="#" class="desc-link" target="_blank" rel="noopener noreferrer">Inverters convert DC power from solar panels into AC power for your building. String inverters are cost‑effective for standard installations. Microinverters optimise each panel individually. Hybrid inverters manage both solar and battery storage seamlessly.</a></p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+
+      <!-- Batteries -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <i class="fas fa-car-battery" style="font-size: 3rem;"></i>
+          <span style="position: absolute; bottom: 10px; right: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.6); padding: 2px 8px; border-radius: 20px;">Image Placeholder</span>
+        </div>
+        <div class="product-info">
+          <h3>Energy Storage (Batteries)</h3>
+          <div class="specs">Lithium‑ion · Lead‑acid · Deep cycle</div>
+          <p><a href="#" class="desc-link" target="_blank" rel="noopener noreferrer">Batteries store excess solar energy for use at night or during grid outages. Lithium‑ion batteries are compact, long‑lasting, and require no maintenance. Lead‑acid batteries are more affordable for smaller systems. We help you choose the right capacity for your energy needs.</a></p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+
+      <!-- Charge Controllers -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <i class="fas fa-sliders-h" style="font-size: 3rem;"></i>
+          <span style="position: absolute; bottom: 10px; right: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.6); padding: 2px 8px; border-radius: 20px;">Image Placeholder</span>
+        </div>
+        <div class="product-info">
+          <h3>Charge Controllers</h3>
+          <div class="specs">PWM · MPPT · Overcharge protection</div>
+          <p><a href="#" class="desc-link" target="_blank" rel="noopener noreferrer">Charge controllers regulate the voltage and current from solar panels to batteries, preventing overcharging and extending battery life. MPPT controllers are more efficient, especially in cloudy conditions or low light.</a></p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title">Installation & Maintenance</h2>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="media-placeholder">
+          <i class="fas fa-hard-hat" style="font-size: 3rem;"></i>
+          <span style="position: absolute; bottom: 10px; right: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.6); padding: 2px 8px; border-radius: 20px;">Image Placeholder</span>
+        </div>
+        <div class="product-info">
+          <h3>Professional Installation</h3>
+          <div class="specs">Certified engineers · Site assessment · Permits</div>
+          <p>AegisVision’s certified technicians conduct a thorough site assessment — analysing roof orientation, shading, and energy consumption. We handle all permits, mounting, wiring, and commissioning. Our installations meet international standards and are backed by warranties.</p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="media-placeholder">
+          <i class="fas fa-tools" style="font-size: 3rem;"></i>
+          <span style="position: absolute; bottom: 10px; right: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.6); padding: 2px 8px; border-radius: 20px;">Image Placeholder</span>
+        </div>
+        <div class="product-info">
+          <h3>Routine Maintenance</h3>
+          <div class="specs">Panel cleaning · Performance monitoring · Repairs</div>
+          <p>Regular maintenance ensures your system operates at peak efficiency. We offer cleaning, inspection of electrical connections, inverter testing, and battery health checks. Remote monitoring available for hybrid and off‑grid systems.</p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Solar for Different Properties -->
+    <h2 class="section-title">Solar Solutions for Different Properties</h2>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="media-placeholder">
+          <i class="fas fa-building" style="font-size: 3rem;"></i>
+          <span style="position: absolute; bottom: 10px; right: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.6); padding: 2px 8px; border-radius: 20px;">Image Placeholder</span>
+        </div>
+        <div class="product-info">
+          <h3>Commercial & Industrial</h3>
+          <div class="specs">Hotels · Clinics · Offices · Factories</div>
+          <p>Large‑scale roof or ground‑mount systems that significantly reduce operating costs. We design systems from 10kW to 1MW+, including grid‑tied and hybrid configurations. Power your business with clean, predictable energy.</p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="media-placeholder">
+          <i class="fas fa-home" style="font-size: 3rem;"></i>
+          <span style="position: absolute; bottom: 10px; right: 15px; font-size: 0.7rem; background: rgba(0,0,0,0.6); padding: 2px 8px; border-radius: 20px;">Image Placeholder</span>
+        </div>
+        <div class="product-info">
+          <h3>Residential Homes</h3>
+          <div class="specs">3kW – 20kW systems · Battery backup optional</div>
+          <p>Eliminate power outages and reduce electricity bills. We offer roof‑mounted, ground‑mounted, and carport solar solutions. Customised to your home’s energy usage and roof space.</p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Benefits & Environmental Impact -->
+    <div style="background: #0B2B40; border-radius: 28px; padding: 40px; margin: 60px 0; color: white;">
+      <h2 style="text-align: center; margin-bottom: 20px;">Why Switch to Solar with AegisVision?</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 30px;">
+        <div style="text-align: center;"><i class="fas fa-chart-line" style="font-size: 2rem; color: #FFD966;"></i><h3 style="margin: 15px 0 10px;">Lower Bills</h3><p>Reduce electricity costs by 60‑90%.</p></div>
+        <div style="text-align: center;"><i class="fas fa-leaf" style="font-size: 2rem; color: #6FCF97;"></i><h3 style="margin: 15px 0 10px;">Clean Energy</h3><p>Reduce carbon footprint and support sustainability.</p></div>
+        <div style="text-align: center;"><i class="fas fa-bolt" style="font-size: 2rem; color: #FFD966;"></i><h3 style="margin: 15px 0 10px;">Backup Power</h3><p>Uninterrupted electricity with battery storage.</p></div>
+        <div style="text-align: center;"><i class="fas fa-calendar-alt" style="font-size: 2rem; color: #6FCF97;"></i><h3 style="margin: 15px 0 10px;">25‑Year Warranty</h3><p>Long‑term performance guarantee.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 AegisVision Systems Engineering — Engineering Precision, Reliable Systems</p>
+      <p style="margin-top: 10px;"><i class="fas fa-phone"></i> 0550785918 | <i class="fas fa-envelope"></i> aegisvisiontech@gmail.com</p>
+    </div>
+  </footer>
+
+  <script>
+    console.log("Solar & renewable page ready — replace placeholder images with your product photos.");
+  </script>
+</body>
+</html>
