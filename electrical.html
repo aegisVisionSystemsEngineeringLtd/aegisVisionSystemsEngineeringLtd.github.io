@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AegisVision | Electrical & Power Systems Installations</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #F7F9FC;
+      color: #1A2C3E;
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .header {
+      background: white;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      flex-wrap: wrap;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-icon {
+      background: #0B2B40;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      color: white;
+      font-size: 1.4rem;
+    }
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: 800;
+      font-family: 'Poppins', sans-serif;
+    }
+    .logo-text span {
+      color: #C44536;
+    }
+    .back-home {
+      background: #1E5F7A;
+      color: white;
+      padding: 8px 20px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+    .back-home:hover {
+      background: #0B2B40;
+    }
+    .hero {
+      background: linear-gradient(105deg, #0B2B40 0%, #1E5F7A 100%);
+      color: white;
+      padding: 60px 0;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      font-family: 'Poppins', sans-serif;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      max-width: 800px;
+      margin: 0 auto;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin: 60px 0 20px;
+      font-family: 'Poppins', sans-serif;
+    }
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #4A627A;
+      margin-bottom: 40px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 32px;
+      margin-bottom: 80px;
+    }
+    .product-card {
+      background: white;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s;
+    }
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 35px rgba(0,0,0,0.12);
+    }
+    .media-placeholder {
+      background: #EFF3F8;
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6C86A3;
+      font-size: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .media-placeholder img, .media-placeholder video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .product-info {
+      padding: 24px;
+    }
+    .product-info h3 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+      font-family: 'Poppins', sans-serif;
+    }
+    .product-info p {
+      color: #4A627A;
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+    .specs {
+      font-size: 0.85rem;
+      color: #1E5F7A;
+      background: #E9F0F5;
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+    .btn-quote {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #C44536;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: 0.2s;
+    }
+    .btn-quote:hover {
+      background: #A13224;
+    }
+    .desc-link {
+      text-decoration: none;
+      color: #4A627A;
+      transition: color 0.2s;
+    }
+    .desc-link:hover {
+      color: #1E5F7A;
+      text-decoration: underline;
+    }
+    .footer {
+      background: #0A1922;
+      color: #C9D9E6;
+      text-align: center;
+      padding: 32px 0;
+      margin-top: 40px;
+    }
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 1.8rem; }
+      .products-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <div class="logo-icon"><i class="fas fa-shield-alt"></i></div>
+          <div class="logo-text">AegisVision<span>Systems</span></div>
+        </div>
+        <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Electrical Installations & Power Systems</h1>
+      <p>Safe, reliable, and code‑compliant electrical solutions for residential, commercial, and industrial properties. AegisVision provides complete electrical installations — from house wiring and panel upgrades to electric fencing, surge protection, and backup power systems across Ghana.</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <!-- Understanding Electrical Installations -->
+    <div style="background: #E9F0F5; border-radius: 28px; padding: 40px; margin-bottom: 60px;">
+      <h2 style="text-align: center; margin-bottom: 20px;">Professional Electrical Solutions</h2>
+      <p style="text-align: center; max-width: 900px; margin: 0 auto; color: #1A2C3E;">Proper electrical design and installation are critical for safety, efficiency, and compliance. AegisVision’s certified electricians follow IEC and local Ghanaian standards to deliver durable, future‑ready electrical systems. We serve homes, hotels, clinics, offices, schools, and industrial facilities.</p>
+    </div>
+
+    <h2 class="section-title">Core Electrical Services</h2>
+    <p class="section-subtitle">Comprehensive solutions for every need</p>
+    <div class="products-grid">
+      <!-- House Wiring -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <img src="house_wiring.jpg" ></span>
+        </div>
+        <div class="product-info">
+          <h3>House Wiring & Rewiring</h3>
+          <div class="specs">New builds · Renovations · Expansions</div>
+          <p><a href="#" class="desc-link" target="_blank" rel="noopener noreferrer">Complete electrical wiring for residential properties, from new construction to full rewiring of older homes. We use high‑quality copper cables, proper conduit systems, and ensure compliance with load calculations and safety standards. Includes lighting circuits, power outlets, and dedicated lines for appliances.</a></p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+
+      <!-- Panel Upgrades -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <img src="db.jpg" ></span>
+        </div>
+        <div class="product-info">
+          <h3>Distribution Board Upgrades</h3>
+          <div class="specs">Main switchboards · Sub‑panels · Load balancing</div>
+          <p><a href="#" class="desc-link" target="_blank" rel="noopener noreferrer">Upgrade outdated or overloaded fuse boxes to modern circuit breaker panels. We install RCBOs (residual current breakers with overcurrent protection), surge protection devices, and ensure proper earthing. Ideal for expanding businesses or homes adding high‑power equipment like air conditioners or EV chargers.</a></p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+
+      <!-- Electric Fence -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <img src="fence_installation.jpg" ></span>
+        </div>
+        <div class="product-info">
+          <h3>Electric Fence Installation</h3>
+          <div class="specs">Perimeter security · Energizer units · Alarm integration</div>
+          <p><a href="#" class="desc-link" target="_blank" rel="noopener noreferrer">High‑voltage electric fencing for residential estates, commercial properties, and industrial perimeters. We use weatherproof energizers, insulated brackets, and warning signs. Systems can be integrated with alarm panels or CCTV for complete security. Compliant with safety regulations to avoid accidental shocks.</a></p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+
+      <!-- Surge Protection -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <img src="schematic.jpg" ></span>
+        </div>
+          <h3>Surge Protection Systems</h3>
+          <div class="specs">Type 1,2,3 · Lightning arrestors · SPDs</div>
+          <p><a href="#" class="desc-link" target="_blank" rel="noopener noreferrer">Protect sensitive electronics from voltage spikes caused by lightning or grid switching. We install whole‑house surge protectors at the main panel (Type 1/2) and point‑of‑use protectors (Type 3) for computers, medical equipment, and entertainment systems. Essential for clinics, data rooms, and smart homes.</a></p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title">Backup Power & Specialised Systems</h2>
+    <p class="section-subtitle">Ensure uninterrupted operations</p>
+    <div class="products-grid">
+      <!-- Generator Installation -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <img src="generator.jpg" ></span>
+        </div>
+        <div class="product-info">
+          <h3>Generator Installation</h3>
+          <div class="specs">Automatic transfer switches · Load shedding</div>
+          <p><a href="#" class="desc-link" target="_blank" rel="noopener noreferrer">We install and connect standby generators for homes and businesses. Includes automatic transfer switches (ATS) for seamless power during outages, fuel system setup, exhaust management, and load testing. Sizing from 5kVA to 500kVA+.</a></p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+
+      <!-- UPS Installation -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <img src="backup_system.jpg" ></span>
+        </div>
+        <div class="product-info">
+          <h3>UPS & Battery Backup</h3>
+          <div class="specs">Line‑interactive · Online double conversion</div>
+          <p><a href="#" class="desc-link" target="_blank" rel="noopener noreferrer">Uninterruptible power supplies for critical equipment — servers, medical devices, POS systems, and security panels. We supply and install UPS units with external battery cabinets for extended runtime.</a></p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+
+      <!-- Lighting Installation -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <img src="solarsys.jpg" ></span>
+        </div>
+        <div class="product-info">
+          <h3>Lighting & Energy Efficiency</h3>
+          <div class="specs">LED retrofits · Smart lighting · Motion sensors</div>
+          <p><a href="#" class="desc-link" target="_blank" rel="noopener noreferrer">Upgrade to energy‑efficient LED lighting for interior, exterior, and security applications. We install dimmers, occupancy sensors, and smart lighting controls to reduce electricity consumption and improve ambiance.</a></p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+
+      <!-- Industrial Electrical -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <img src="industrial.jpg" ></span>
+        </div>
+        <div class="product-info">
+          <h3>Industrial & Commercial</h3>
+          <div class="specs">3‑phase power · Motor control · Switchgear</div>
+          <p><a href="#" class="desc-link" target="_blank" rel="noopener noreferrer">Complete electrical infrastructure for factories, workshops, and commercial complexes. We install 3‑phase distribution boards, motor control centres, cable tray systems, and high‑power outlets. Compliance with industrial safety standards.</a></p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title">Installation & Maintenance</h2>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="media-placeholder">
+          <img src="solar_inverter3.jpg" ></span> 
+        </div>
+        <div class="product-info">
+          <h3>Professional Installation</h3>
+          <div class="specs">Certified electricians · Permits · Inspection</div>
+          <p>All work is performed by licensed electricians with years of experience. We obtain necessary permits, conduct site surveys, and provide detailed wiring diagrams. Post‑installation testing ensures everything meets code and operates safely.</p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="media-placeholder">
+          <img src="installation1.jpg" ></span>
+        </div>
+        <div class="product-info">
+          <h3>Routine Maintenance</h3>
+          <div class="specs">Thermal imaging · Load testing · Emergency repairs</div>
+          <p>Regular inspections prevent failures and ensure safety. Services include thermal scanning for loose connections, tightening terminals, cleaning panels, testing RCDs, and emergency call‑out for faults.</p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Benefits of Professional Electrical Work -->
+    <div style="background: #0B2B40; border-radius: 28px; padding: 40px; margin: 60px 0; color: white;">
+      <h2 style="text-align: center; margin-bottom: 20px;">Why Choose AegisVision for Electrical Installations?</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 30px;">
+        <div style="text-align: center;"><i class="fas fa-check-circle" style="font-size: 2rem; color: #6FCF97;"></i><h3 style="margin: 15px 0 10px;">Code Compliance</h3><p>All work meets IEC and local standards.</p></div>
+        <div style="text-align: center;"><i class="fas fa-certificate" style="font-size: 2rem; color: #FFD966;"></i><h3 style="margin: 15px 0 10px;">Certified Electricians</h3><p>Trained, licensed, and insured professionals.</p></div>
+        <div style="text-align: center;"><i class="fas fa-clock" style="font-size: 2rem; color: #6FCF97;"></i><h3 style="margin: 15px 0 10px;">On‑Time Service</h3><p>Scheduled and emergency availability.</p></div>
+        <div style="text-align: center;"><i class="fas fa-history" style="font-size: 2rem; color: #FFD966;"></i><h3 style="margin: 15px 0 10px;">Warranty</h3><p>Workmanship guaranteed for peace of mind.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 AegisVision Systems Engineering — Engineering Precision, Reliable Systems</p>
+      <p style="margin-top: 10px;"><i class="fas fa-phone"></i> 0550785918 | <i class="fas fa-envelope"></i> aegisvisiontech@gmail.com</p>
+    </div>
+  </footer>
+
+  
+
+</body>
+</html>

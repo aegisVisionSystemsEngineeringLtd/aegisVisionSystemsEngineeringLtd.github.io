@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AegisVision | Smart Automation Systems</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #F7F9FC;
+      color: #1A2C3E;
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .header {
+      background: white;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      flex-wrap: wrap;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-icon {
+      background: #0B2B40;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      color: white;
+      font-size: 1.4rem;
+    }
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: 800;
+      font-family: 'Poppins', sans-serif;
+    }
+    .logo-text span {
+      color: #C44536;
+    }
+    .back-home {
+      background: #1E5F7A;
+      color: white;
+      padding: 8px 20px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.2s;
+    }
+    .back-home:hover {
+      background: #0B2B40;
+    }
+    .hero {
+      background: linear-gradient(105deg, #0B2B40 0%, #1E5F7A 100%);
+      color: white;
+      padding: 60px 0;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      font-family: 'Poppins', sans-serif;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      max-width: 800px;
+      margin: 0 auto;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin: 60px 0 20px;
+      font-family: 'Poppins', sans-serif;
+    }
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #4A627A;
+      margin-bottom: 40px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 32px;
+      margin-bottom: 80px;
+    }
+    .product-card {
+      background: white;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s;
+    }
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 35px rgba(0,0,0,0.12);
+    }
+    .media-placeholder {
+      background: #EFF3F8;
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #6C86A3;
+      font-size: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .media-placeholder img, .media-placeholder video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .product-info {
+      padding: 24px;
+    }
+    .product-info h3 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+      font-family: 'Poppins', sans-serif;
+    }
+    .product-info p {
+      color: #4A627A;
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+    .specs {
+      font-size: 0.85rem;
+      color: #1E5F7A;
+      background: #E9F0F5;
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+    .btn-quote {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #C44536;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: 0.2s;
+    }
+    .btn-quote:hover {
+      background: #A13224;
+    }
+    .desc-link {
+      text-decoration: none;
+      color: #4A627A;
+      transition: color 0.2s;
+    }
+    .desc-link:hover {
+      color: #1E5F7A;
+      text-decoration: underline;
+    }
+    .footer {
+      background: #0A1922;
+      color: #C9D9E6;
+      text-align: center;
+      padding: 32px 0;
+      margin-top: 40px;
+    }
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 1.8rem; }
+      .products-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <div class="logo-icon"><i class="fas fa-shield-alt"></i></div>
+          <div class="logo-text">AegisVision<span>Systems</span></div>
+        </div>
+        <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Back to Home</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Smart Automation Systems</h1>
+      <p>Seamlessly integrate lighting, HVAC, access control, and IoT devices into a single intelligent platform. AegisVision designs and installs custom automation solutions for hotels, offices, clinics, schools, and high‑end residences across Ghana – enhancing comfort, security, and energy efficiency.</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <!-- Understanding Smart Automation -->
+    <div style="background: #E9F0F5; border-radius: 28px; padding: 40px; margin-bottom: 60px;">
+      <h2 style="text-align: center; margin-bottom: 20px;">What is Smart Building Automation?</h2>
+      <p style="text-align: center; max-width: 900px; margin: 0 auto; color: #1A2C3E;">Smart automation connects your building’s core systems – lighting, HVAC, security, and appliances – into a unified network that can be controlled remotely via smartphone, tablet, or voice. AegisVision delivers scalable, future‑proof automation that reduces energy waste, improves occupant comfort, and provides real‑time insights.</p>
+    </div>
+
+    <h2 class="section-title">Core Automation Systems</h2>
+    <p class="section-subtitle">Intelligent control for every aspect of your building</p>
+    <div class="products-grid">
+      <!-- Lighting Control -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <img src="smart_home2.jpg" ></span>
+        </div>
+        <div class="product-info">
+          <h3>Smart Lighting Control</h3>
+          <div class="specs">Dimming · Scheduling · Motion sensors · Scene setting</div>
+          <p><a href="#" class="desc-link" target="_blank" rel="noopener noreferrer">Automate interior and exterior lighting based on occupancy, time of day, or natural light levels. Create custom scenes for meetings, cinema, or relaxed evenings. Reduce energy bills by up to 60% with LED dimming and scheduled off‑times. Integrates with voice assistants (Alexa, Google Home).</a></p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+
+      <!-- HVAC Automation -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <<img src="smart_home.jpg" ></span> 
+        </div>
+        <div class="product-info">
+          <h3>HVAC Automation</h3>
+          <div class="specs">Smart thermostats · Zoning · Remote scheduling</div>
+          <p><a href="#" class="desc-link" target="_blank" rel="noopener noreferrer">Optimise heating, ventilation, and air conditioning for comfort and efficiency. Program temperature schedules per zone, monitor energy usage, and adjust remotely via smartphone. Ideal for hotels, offices, and multi‑zone residential properties. Reduces HVAC running costs by 20‑30%.</a></p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+
+      <!-- Access Control -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <img src="access_control.jpg" ></span>
+        </div>
+        <div class="product-info">
+          <h3>Access Control Systems</h3>
+          <div class="specs">Biometric · RFID · Keypad · Mobile credentials</div>
+          <p><a href="#" class="desc-link" target="_blank" rel="noopener noreferrer">Secure your premises with electronic access control. Manage who can enter specific areas, track entry logs, and revoke access instantly. Options include fingerprint readers, proximity cards, PIN keypads, and smartphone‑based credentials. Integrates with CCTV and alarm systems.</a></p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+
+      <!-- IoT Integration -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <img src="sensor.jpg" ></span>
+        </div>
+        <div class="product-info">
+          <h3>IoT & Smart Sensors</h3>
+          <div class="specs">Environmental monitoring · Leak detection · Predictive alerts</div>
+          <p><a href="#" class="desc-link" target="_blank" rel="noopener noreferrer">Deploy Internet of Things (IoT) sensors for real‑time data – temperature, humidity, water leaks, air quality, and equipment status. Receive alerts on your phone and automate responses (e.g., shut off water valve if a leak is detected). Perfect for server rooms, laboratories, and cold storage.</a></p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title">Advanced Automation Features</h2>
+    <div class="products-grid">
+      <!-- Voice Control & Integration -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <img src="voice.jpg"></span>
+        </div>
+        <div class="product-info">
+          <h3>Voice & Platform Integration</h3>
+          <div class="specs">Alexa · Google Home · Apple HomeKit · IFTTT</div>
+          <p>Control lights, AC, curtains, and more with simple voice commands. Our systems integrate with major smart home platforms and allow custom automation rules (e.g., “when I arrive home, unlock the door, turn on hallway lights, and set AC to 24°C”).</p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+
+      <!-- Energy Management -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <img src="e_monitor.jpg"></span>
+        </div>
+        <div class="product-info">
+          <h3>Energy Monitoring & Management</h3>
+          <div class="specs">Real‑time consumption · Automated demand response</div>
+          <p>Track electricity usage per circuit or appliance. Identify high‑consumption devices, set energy budgets, and automate load shedding during peak tariffs. Combines with solar/battery systems for optimum self‑consumption.</p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+
+      <!-- Security Integration -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <img src="horns.png" ></span>
+        </div>
+        <div class="product-info">
+          <h3>Security & Alarm Integration</h3>
+          <div class="specs">Door/window sensors · Glass break · Panic buttons</div>
+          <p>Link intrusion detection with automation: When alarm triggers, lights flash, cameras record, and you receive instant mobile alerts. Arm/disarm the system remotely and create “away” modes that simulate occupancy.</p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+
+      <!-- Motorised Blinds / Curtains -->
+      <div class="product-card">
+        <div class="media-placeholder">
+          <video controls width="400" loop muted>
+            <source src="curtains_opener.mp4"  type="video/mp4">
+             
+          </video>
+        </div>
+        <div class="product-info">
+          <h3>Motorised Blinds & Curtains</h3>
+          <div class="specs">Automated shading · Sunlight tracking · Privacy modes</div>
+          <p>Enhance comfort and energy efficiency with motorised window coverings. Schedule them to open in the morning and close at sunset, or link to temperature sensors to reduce solar heat gain.</p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title">Installation & Support</h2>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="media-placeholder">
+          <img src="automatic_installations.jpg" ></span>
+        </div>
+        <div class="product-info">
+          <h3>Professional Installation</h3>
+          <div class="specs">Site survey · System design · Commissioning</div>
+          <p>Our certified automation specialists assess your needs, design a tailored system, and handle all wiring, configuration, and programming. We ensure seamless integration of new and existing devices. Training provided for end users.</p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="media-placeholder">
+          <img src="support.jpg" ></span>
+        </div>
+        <div class="product-info">
+          <h3>Remote & On‑Site Support</h3>
+          <div class="specs">Firmware updates · Troubleshooting · System expansion</div>
+          <p>Enjoy peace of mind with ongoing maintenance. We remotely monitor system health, push software updates, and provide quick on‑site response for any issues. Expand your automation as needs grow.</p>
+          <a href="#contact" class="btn-quote" onclick="alert('Contact us for pricing: 0550785918')"><i class="fas fa-file-invoice"></i> Request Quote</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Benefits of Smart Automation -->
+    <div style="background: #0B2B40; border-radius: 28px; padding: 40px; margin: 60px 0; color: white;">
+      <h2 style="text-align: center; margin-bottom: 20px;">Why Automate with AegisVision?</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 30px;">
+        <div style="text-align: center;"><i class="fas fa-leaf" style="font-size: 2rem; color: #6FCF97;"></i><h3 style="margin: 15px 0 10px;">Energy Savings</h3><p>Reduce electricity bills by 20‑40% through smart scheduling and monitoring.</p></div>
+        <div style="text-align: center;"><i class="fas fa-laptop-house" style="font-size: 2rem; color: #FFD966;"></i><h3 style="margin: 15px 0 10px;">Remote Control</h3><p>Manage your building from anywhere via smartphone or web dashboard.</p></div>
+        <div style="text-align: center;"><i class="fas fa-chart-simple" style="font-size: 2rem; color: #6FCF97;"></i><h3 style="margin: 15px 0 10px;">Data Insights</h3><p>Receive actionable reports on energy use, occupancy patterns, and equipment health.</p></div>
+        <div style="text-align: center;"><i class="fas fa-expand-arrows-alt" style="font-size: 2rem; color: #FFD966;"></i><h3 style="margin: 15px 0 10px;">Scalable</h3><p>Start with basic lighting control and expand to full building management over time.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 AegisVision Systems Engineering — Engineering Precision, Reliable Systems</p>
+      <p style="margin-top: 10px;"><i class="fas fa-phone"></i> 0550785918 | <i class="fas fa-envelope"></i> aegisvisiontech@gmail.com</p>
+    </div>
+  </footer>
+
+
+</body>
+</html>
